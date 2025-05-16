@@ -1,5 +1,11 @@
 package com.ok200.demo.repository;
 
-public interface UserRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import com.ok200.demo.model.User;
 
+@Repository
+public interface UserRepository extends JpaRepository<User, Integer> {
+
+    User findByEmail(String email);
 }
