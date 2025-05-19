@@ -47,7 +47,7 @@ public class User {
 
     @Column
     @NotBlank(message = "El contacto no puede estar vacío")
-    @Size(max = 100, message = "Sospechamos que esto no es solo un link de Discord")
+    @Size(max = 150, message = "Sospechamos que esto no es solo un link de Discord")
     private String discordLink;
 
     
