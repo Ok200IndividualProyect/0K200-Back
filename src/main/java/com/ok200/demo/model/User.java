@@ -1,17 +1,18 @@
 package com.ok200.demo.model;
 
-// import java.util.HashSet;
-// import java.util.Set;
+import java.util.HashSet;
+import java.util.Set;
+
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-// import jakarta.persistence.FetchType;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-// import jakarta.persistence.JoinColumn;
-// import jakarta.persistence.JoinTable;
-// import jakarta.persistence.ManyToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
@@ -57,13 +58,13 @@ public class User {
     @Size(max = 150, message = "Sospechamos que esto no es solo un link de Discord")
     private String discordLink;
 
-    // @ManyToMany(fetch = FetchType.LAZY)
-    // @JoinTable(
-    // name = "user_technologies",
-    // joinColumns = @JoinColumn(name = "user_id"),
-    // inverseJoinColumns = @JoinColumn(name = "technology_id")
-    // )
-    // private Set<Technologies> technologies = new HashSet<>();
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+    name = "user_technologies",
+    joinColumns = @JoinColumn(name = "user_id"),
+    inverseJoinColumns = @JoinColumn(name = "technology_id")
+    )
+    private Set<Technologies> technologies = new HashSet<>();
     
 
 }
