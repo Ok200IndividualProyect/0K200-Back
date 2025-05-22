@@ -1,6 +1,7 @@
 package com.ok200.demo.service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,4 +40,9 @@ public class UserService {
         user.setTechnologies(finalTechs);
         return new ResponseEntity<>(userRepository.save(user), HttpStatus.CREATED);
     }
+
+    public List<User> getMatchesByUserId(Integer userId) {
+    return userRepository.findUsersWithSharedTechnologies(userId);
+}
+
 }

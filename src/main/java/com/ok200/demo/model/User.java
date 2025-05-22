@@ -40,6 +40,7 @@ public class User {
 
     @Column
     @NotBlank
+    @Pattern(regexp = "^[^\\/:*?\\\"<>|]+$", message = "No está permitido el uso de caracteres especiales")
     @Email(message = "Por favor, ingrese un formato válido de email")
     private String email;
 
@@ -55,6 +56,8 @@ public class User {
 
     @Column
     @NotBlank(message = "El contacto no puede estar vacío")
+    //@Pattern(regexp = "^[^\\*?\\\"<>|]+$", message = "No está permitido el uso de caracteres especiales")
+    //validar el http
     @Size(max = 150, message = "Sospechamos que esto no es solo un link de Discord")
     private String discordLink;
 

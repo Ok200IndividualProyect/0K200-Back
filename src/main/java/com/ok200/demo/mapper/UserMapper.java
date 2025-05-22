@@ -1,7 +1,9 @@
 package com.ok200.demo.mapper;
 
-import org.springframework.stereotype.Component;
+import java.util.Set;
+import java.util.stream.Collectors;
 
+import org.springframework.stereotype.Component;
 import com.ok200.demo.dto.UserDTO;
 import com.ok200.demo.model.User;
 
@@ -13,6 +15,11 @@ public class UserMapper {
         dto.setUsername(user.getUsername());
         dto.setDescription(user.getDescription());
         dto.setDiscordLink(user.getDiscordLink());
+        Set<String> techNames = user.getTechnologies()
+                                    .stream()
+                                    .map(tech -> tech.getName())
+                                    .collect(Collectors.toSet());
+        dto.setTechnologies(techNames);
         return dto;
     }
 
