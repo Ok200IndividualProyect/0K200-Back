@@ -4,9 +4,7 @@ import com.ok200.demo.model.Technologies;
 import com.ok200.demo.repository.TechnologiesRepository;
 import com.ok200.demo.service.TechnologiesService;
 import jakarta.validation.Valid;
-
 import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
