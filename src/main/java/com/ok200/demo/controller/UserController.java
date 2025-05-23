@@ -36,6 +36,7 @@ public class UserController {
         return userService.createUser(user);
     }
     
+
     @GetMapping("/{id}/matches")
 public ResponseEntity<List<UserDTO>> getMatches(@PathVariable("id") Integer userId) {
     List<User> matchesdUsers = userService.getMatchesByUserId(userId);

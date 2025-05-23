@@ -27,7 +27,7 @@ public class UserService {
     public ResponseEntity<Object> createUser(User user){
 
         if(userRepository.findByEmail(user.getEmail()) != null){
-            throw new EmailAlreadyExistsException("[ERROR]: Ya existe un usuario registrado con ese correo. Intente con otro.");
+            throw new EmailAlreadyExistsException("There's already a registered user with that email address. Please try another one.");
         }
 
         Set<Technologies> finalTechs = new HashSet<>();

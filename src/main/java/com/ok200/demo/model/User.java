@@ -2,8 +2,6 @@ package com.ok200.demo.model;
 
 import java.util.HashSet;
 import java.util.Set;
-
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -33,32 +31,32 @@ public class User {
     private Integer id;
 
     @Column
-    @NotBlank (message = " El campo de username no puede estar vacio y tampoco tener espacios")
-    @Pattern(regexp = "^[^\\/:*?\\\"<>|]+$", message = "No está permitido el uso de caracteres especiales")
-    @Size (max = 20, message = " Máximo de 20 caracteres permitidos en este campo")
+    @NotBlank (message = "The username field cannot be empty and cannot have spaces.")
+    @Pattern(regexp = "^[^\\/:*?\\\"<>|]+$", message = "The use of special characters is not allowed.")
+    @Size (max = 20, message = "Maximum 20 characters allowed in this field")
     private String username;
 
     @Column
     @NotBlank
-    @Pattern(regexp = "^[^\\/:*?\\\"<>|]+$", message = "No está permitido el uso de caracteres especiales")
-    @Email(message = "Por favor, ingrese un formato válido de email")
+    @Pattern(regexp = "^[^\\/:*?\\\"<>|]+$", message = "The use of special characters is not allowed.")
+    @Email(message = "Please enter a valid email format")
+    @Size (max = 40, message = "Maximum 40 characters allowed in this field")
     private String email;
 
+
     @Column
-    @NotBlank(message = "La contraseña no puede estar vacía")
-    @Size(max = 16, min = 8, message = "La contraseña debe de tener un minimo de 8 caracteres y un máximo de 16 caracteres")
+    @NotBlank(message = "The password cannot be empty")
+    @Size(max = 16, min = 8, message = "The password must have a minimum of 8 characters and a maximum of 16 characters.")
     private String password;
 
     @Column
-    @Pattern(regexp = "^[^\\/:*?\\\"<>|]+$", message = "No está permitido el uso de caracteres especiales")
-    @Size(max = 200, message = "Máximo de 200 caracteres permitidos en este campo")
+    @Pattern(regexp = "^[^\\/:*?\\\"<>|]+$", message = "The use of special characters is not allowed.")
+    @Size(max = 200, message = "Maximum 200 characters allowed in this field")
     private String description;
 
     @Column
-    @NotBlank(message = "El contacto no puede estar vacío")
-    //@Pattern(regexp = "^[^\\*?\\\"<>|]+$", message = "No está permitido el uso de caracteres especiales")
-    //validar el http
-    @Size(max = 150, message = "Sospechamos que esto no es solo un link de Discord")
+    @NotBlank(message = "The contact cannot be empty")
+    @Size(max = 150, message = "We suspect this isn't just a Discord link")
     private String discordLink;
 
     @ManyToMany(fetch = FetchType.LAZY)

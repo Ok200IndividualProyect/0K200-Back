@@ -3,9 +3,7 @@ package com.ok200.demo.model;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -34,9 +32,9 @@ public class Technologies {
  private Integer id;
  
 @Column
-@NotBlank (message = " El campo de username no puede estar vacio y tampoco tener espacios")
-@Pattern(regexp = "^[^\\/:*?\\\"<>|]+$", message = "No está permitido el uso de caracteres especiales")
-@Size (max = 20, message = " Máximo de 20 caracteres permitidos en este campo")
+@NotBlank (message = "The field cannot be empty and cannot have spaces.")
+@Pattern(regexp = "^[^\\/:*?\\\"<>|]+$", message = "The use of special characters is not allowed.")
+@Size (max = 20, message = "Maximum 20 characters allowed in this field")
 private String name;
 
 @ManyToMany(mappedBy = "technologies")
